@@ -15,8 +15,8 @@ def techSinaCrawler():
             href = link.get('href')
             
             #  got the links 
-            techSinaInsideLinkCrawler(href);
             
+            techSinaInsideLinkCrawler(href);            
             
 def techSinaInsideLinkCrawler(url):
 
@@ -24,7 +24,9 @@ def techSinaInsideLinkCrawler(url):
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text, "html.parser")
     for data in soup.findAll('h1',{'id': 'main_title'}):
-
-        f.write(data.prettify());
+        str='main_title'+':'+ data.string
+        f.write(str);
+        f.write('\n');
+        
         
 techSinaCrawler();
